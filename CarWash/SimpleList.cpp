@@ -32,23 +32,25 @@ void SimpleList::QueueItem(int newValue)
 
 int SimpleList::DequeueItem()
 {
-	// Is empty 
+		// Is empty 
 		if (head == NULL)
-			return -1;
+		{
+			throw exception("Exception thrown: head = NULL");
+		}
+	
+	Node* temp = head;
+	head = temp->next;
 
-		Node* temp = head;
-		head = temp->next;
+	// Set new head to maintain the list
+	// even if next is NULL
+	if (head == NULL)
+		tail = NULL;
 
-		// Set new head to maintain the list
-		// even if next is NULL
-		if (head == NULL)
-			tail = NULL;
+	int nReturn = temp->value;
+	delete temp;
 
-		int nReturn = temp->value;
-		delete temp;
-
-		//cout << "Dequeued Value" << endl;
-		return nReturn;
+	cout << "Dequeued Value" << endl;
+	return nReturn;
 
 }
 
