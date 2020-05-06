@@ -49,7 +49,7 @@ int SimpleList::DequeueItem()
 	int nReturn = temp->value;
 	delete temp;
 
-	cout << "Dequeued Value" << endl;
+	//cout << "Dequeued Value" << endl;
 	return nReturn;
 
 }

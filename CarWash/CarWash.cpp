@@ -1,3 +1,10 @@
+/*CSCI 182 - CarWash Assignment
+CarWash.cpp
+
+
+Landon Reekstin
+v1.0 5/5/2020 */
+
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
@@ -47,6 +54,8 @@ int main()
 
         SimpleList c1;
 
+        // Loop for total time of the day in seconds
+        // Controls cars entering queue and car wash
         for (int i = 0; i < totalTime; i++)
         {
 
@@ -78,6 +87,8 @@ int main()
                 totalWaitTimeSum = totalWaitTimeSum + waitTimeSumTemp;
 
             }
+            // Keeps track of 3 minute timer in car wash
+            // Prevents another car from entering wash while one is still washing
             carWashTimer++;
 
             if (carWashTimer == 180)
@@ -86,7 +97,7 @@ int main()
             }
         }
 
-        // divide by total number of cars
+        // Finding average wait time
         avgWaitTime = totalWaitTimeSum / carsWashed;
         avgWaitTime = avgWaitTime / 60;
 
@@ -95,6 +106,7 @@ int main()
         cout << "Average Wait Time: " << avgWaitTime << " minutes" << endl;
 
     }
+    // Exception Handling
     catch (exception& ex)
     {
         cout << "Error found: " << ex.what() << endl;
